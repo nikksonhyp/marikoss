@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>მარიკოს</title>
+
+<style>
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4c1d95;
+    font-family: sans-serif;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff6b81;
+    color: white;
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+.no {
+    position: fixed;
+    background: #d1d5db;
+    color: black;
+    padding: 10px 14px;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container" id="app">
+    <h1>მარიკოს < 3</h1>
+    <button class="yes" onclick="nextStep()">გაგრძელება</button>
+</div>
+
+<script>
+function nextStep() {
+    document.getElementById("app").innerHTML = `
+        <h1>დებილი ხო ხარ? აღიიიიარე თავიდანვე უცბად უცბაადდ 😄</h1>
+        <button class="yes" onclick="nextStep2()">კი <3</button>
+        <button class="no" id="noBtn" onmouseover="move()" ontouchstart="move()">არა...</button>
+    `;
+}
+
+function nextStep2() {
+    document.getElementById("app").innerHTML = `
+        <h1>ახალიიი ამბაავი ხო ვიცოდი ეგ ისედაც <br>კარგია კარგია, კარგად მიდიხარ 👏</h1>
+        <h2>ეხლა მითხარი ხო გიყვარვარ?? <333</h2>
+
+        <button class="yes" onclick="yes()">კი!</button>
+        <button class="yes" onclick="yes()">ძალიან!</button>
+    `;
+}
+function yes() {
+    document.getElementById("app").innerHTML = `
+        <h1>ვიცოდი რო გიყვარდი <33333</h1>
+        <p>მეტის გაკეთება მეზარება ეხლა და მერე გაგიკეთებ კიდე, გაკოცეე :***</p>
+    `;
+}
+
+function move() {
+    let btn = document.getElementById("noBtn");
+
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 60);
+
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
